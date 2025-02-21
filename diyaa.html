@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Red Skirt Queen ❤️</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            text-align: center;
+            position: relative;
+        }
+        .heart {
+            color: red;
+            font-size: 50px;
+            animation: heartbeat 1s infinite alternate;
+        }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+        .message {
+            font-size: 24px;
+            color: #b30000;
+            font-weight: bold;
+        }
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .element-float {
+            position: absolute;
+            font-size: 20px;
+            animation: floatUp 5s infinite linear;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="heart">❤️</div>
+        <p class="message">Diyaaaaa, tu meri zindagi ka sabse khoobsurat hissa hai! 💖</p>
+        <p class="message">Tujhse sirf pyaar nahi, ek gehra rishta hai jo har din aur gehra hota ja raha hai. 🥺❤️</p>
+        <p class="message">Meri har muskurahat, har sapna, har khushi sirf tere wajah se hai! 💕</p>
+        <p class="message">Main har pal sirf tere baare mein sochta hoon, teri hasi meri duniya roshan karti hai! ✨</p>
+        <p class="message">Tu sirf meri mohabbat nahi, meri sabse badi taqat bhi hai! 💪❤️</p>
+        <p class="message">Main har mod par, har mushkil mein tere saath khada rahunga. Tu meri duniya hai! 🌍💖</p>
+    </div>
+    <div class="floating-elements"></div>
+    <script>
+        function createElement() {
+            const elements = ["❤️", "💖", "🌟", "🌸", "💍", "✨"];
+            const element = document.createElement("div");
+            element.classList.add("element-float");
+            element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+            element.style.left = Math.random() * 100 + "vw";
+            element.style.color = ["red", "pink", "gold", "purple"][Math.floor(Math.random() * 4)];
+            element.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.querySelector(".floating-elements").appendChild(element);
+            setTimeout(() => element.remove(), 5000);
+        }
+        setInterval(createElement, 300);
+    </script>
+</body>
+</html>
